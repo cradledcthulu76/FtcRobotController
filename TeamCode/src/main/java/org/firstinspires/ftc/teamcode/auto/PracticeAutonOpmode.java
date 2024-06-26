@@ -21,29 +21,47 @@ public class PracticeAutonOpmode extends OpMode {
         blm = hardwareMap.get(DcMotor.class, "back-left-motor");
         flm.setDirection(DcMotorSimple.Direction.REVERSE);
         blm.setDirection(DcMotorSimple.Direction.REVERSE);
+        frm.setDirection(DcMotorSimple.Direction.FORWARD);
+        brm.setDirection(DcMotorSimple.Direction.FORWARD);
+
+        flm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        frm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);//back left
+        blm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        brm.setMode(DcMotor.RunMode.RUN_USING_ENCODER); //back right
     }
     @Override
     public void loop(){
-        while (getRuntime() <=1){
-            flm.setPower(1);
-            frm.setPower(1);
-            blm.setPower(1);
-            brm.setPower(1);
+        telemetry.addData("4WheelDrive","Forward");
+        while (getRuntime() <=1) {
+            flm.setPower(-0.5);
+            frm.setPower(0.5); //back left
+            blm.setPower(0.5);
+            brm.setPower(-0.5); //back right
         }
-        while(getRuntime()<=2){
-            flm.setPower(0);
-            frm.setPower(0);
-            blm.setPower(0);
-            brm.setPower(0);
-        }
-        while (getRuntime()<=3){
-            flm.setPower(1);
-            frm.setPower(1);
-        }
-        flm.setPower(0);
-        frm.setPower(0);
-        blm.setPower(0);
-        brm.setPower(0);
 
+        while(getRuntime()<=3) {
+            flm.setPower(0);
+            frm.setPower(0.5); //back left
+            blm.setPower(0.5);
+            brm.setPower(0); //back right
+        }
+        while(getRuntime()<=4){
+            flm.setPower(0.5);
+            frm.setPower(0.5);
+            blm.setPower(-0.5);
+            brm.setPower(0.5);
+        }
+        //telemetry.addData("Stop","Stop");
+            //flm.setPower(0); a("2WheelDrive","Forward");
+
+        //flm.setPower(1);
+            //frm.setPower(1);
+        //while (getRuntime()<=10) {
+
+        //}
+    }
+    @Override
+    public void stop(){
+        telemetry.addData("stop", "successful");
     }
 }
