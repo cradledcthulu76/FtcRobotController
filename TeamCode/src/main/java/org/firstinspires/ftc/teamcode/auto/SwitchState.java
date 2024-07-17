@@ -28,6 +28,7 @@ public class SwitchState extends OpMode {
         telemetry.addData("State",state);
         telemetry.addData("Runtime",getRuntime());
         telemetry.addData("Time in State", getRuntime() - lastTime);
+        telemetry.addData("Our Heading", MecanumDriveObj.getHeading(AngleUnit.DEGREES));
         switch (state){
             case Straight:
                 MecanumDriveObj.Straight();
