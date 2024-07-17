@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.util;
 
-import com.qualcomm.hardware.bosch.BNO055IMU;
+import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
+import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import com.qualcomm.hardware.rev.RevHubOrientationOnRobot;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
@@ -163,7 +164,7 @@ public class MecanumDrive {
         double brp =forward + right - rotate;
         setPowers(flp,frp,blp,brp,sensitivity);
     }
-    public double GetHeading(AngleUnit angleUnit) {
+    public double getHeading(AngleUnit angleUnit) {
         return imu.getRobotYawPitchRollAngles().getYaw(angleUnit);
     }
 }
