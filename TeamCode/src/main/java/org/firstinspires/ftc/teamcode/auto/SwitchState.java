@@ -40,7 +40,7 @@ public class SwitchState extends OpMode {
                 break;
             case TurnRight:
                 MecanumDriveObj.TurnRight();
-                if (getRuntime()>= lastTime + 5.0){
+                if (MecanumDriveObj.getHeading(AngleUnit.DEGREES)>0 && MecanumDriveObj.getHeading(AngleUnit.DEGREES) == 90){
                     state = State.StraightRight;
                     lastTime=getRuntime();
                 }

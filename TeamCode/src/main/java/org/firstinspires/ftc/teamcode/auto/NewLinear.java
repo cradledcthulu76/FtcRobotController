@@ -44,7 +44,6 @@ public class NewLinear extends OpMode {
      MecanumDriveObj.TurnRight();
     }
      MecanumDriveObj.Stopper();
-
     }
 
     }

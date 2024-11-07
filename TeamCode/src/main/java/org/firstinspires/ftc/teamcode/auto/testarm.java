@@ -22,7 +22,7 @@ import org.firstinspires.ftc.teamcode.util.MecanumDrive;
         }
         public void loop() {
             while (getRuntime() <=2) {
-                MecanumDriveObj.armmove();
+                MecanumDriveObj.Straight();
             }
 
 

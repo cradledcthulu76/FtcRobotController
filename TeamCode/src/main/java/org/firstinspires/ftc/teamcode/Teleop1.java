@@ -12,10 +12,10 @@ import org.firstinspires.ftc.teamcode.util.MecanumDrive;
 public class Teleop1 extends OpMode {
     MecanumDrive MecanumDriveObj = new MecanumDrive();
     @Override
-    public void init(){
+    public void  init(){
         MecanumDriveObj.init(hardwareMap);
     }
-    double deflator;
+    double deflator = 0.5;
     @Override
     public void loop(){
         deflator = gamepad1.left_bumper && gamepad1.right_bumper ? 0.9 : gamepad1.left_bumper ? 0.4 : 0.7;
@@ -79,11 +79,11 @@ public class Teleop1 extends OpMode {
         double rotation = gamepad1.right_stick_x;
 
         //equations taking the polar coordinates and turing them into motor powers
-        double v1 = velocity * Math.cos(angle + (Math.PI / 4)-angle2);
-        double v2 = velocity * Math.sin(angle + (Math.PI / 4)-angle2);
+        double v1 = -velocity * Math.cos(angle + (Math.PI / 4)+angle2);
+        double v2 = velocity * Math.sin(angle + (Math.PI / 4)+angle2);
         double power1 = v1 + rotation;
-        double power2 = v2 + rotation;
-        double power3 = v2 - rotation;
+        double power2 = v2 - rotation;
+        double power3 = v2 + rotation;
         double power4 = v1 - rotation;
 
         MecanumDriveObj.flm.setPower(power1 * deflator);
