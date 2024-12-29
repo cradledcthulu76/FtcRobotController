@@ -23,11 +23,12 @@ public class MecanumDrive {
     public DcMotor flm;
     public DcMotor brm;
     public DcMotor blm;
-    public Servo arm;
-    public Servo claw;
+   //public Servo arm;
+    //public Servo claw;
     public IMU imu;
-    public ColorSensor colorSensor;
-    public DistanceSensor distanceSensor;
+    public DcMotor hang;
+   // public ColorSensor colorSensor;
+    //public DistanceSensor distanceSensor;
     double deflator = 0.5;
     public int TicksPerRev = 385;
     //initalize components and set the configurations
@@ -53,6 +54,8 @@ public class MecanumDrive {
         frm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         brm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         blm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        hang.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
     // lol i Dont know what this is for
         flm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         frm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -123,7 +126,7 @@ public class MecanumDrive {
         brm.setPower(power);
     }
     // set servo positions(likely wrong)
-    public void ArmOut(){
+    /*public void ArmOut(){
         arm.setPosition(0.7);
     }
     public void ClawHold(){
@@ -134,7 +137,7 @@ public class MecanumDrive {
     }
     public void ArmBack(){
         arm.setPosition(0);
-    }
+    }*/
     // strafe in an unspecified direction
     public void strafe() {
         flm.setPower(-0.5);
@@ -142,8 +145,8 @@ public class MecanumDrive {
         frm.setPower(0.5);
         brm.setPower(-0.5);
     }
-    public int getAmountRed(){
-        return colorSensor.red();
+    /*public int getAmountRed(){
+        //return colorSensor.red();
     }
 
     public double getDistance(DistanceUnit du) {
@@ -152,7 +155,7 @@ public class MecanumDrive {
 
     public double getlength(DistanceUnit du) {
         return du.fromCm(10);
-    }
+    }*/
     // drive forward(ideally) using encoders
         public void DriveForwardEncoder(double power, int distance){
         // reset encoder distance

@@ -20,20 +20,20 @@ import org.firstinspires.ftc.teamcode.util.MecanumDrive;
 
                 MecanumDriveObj.Straight();
 
-                MecanumDriveObj.ArmOut();
+                //MecanumDriveObj.ArmOut();
 
-                MecanumDriveObj.ClawHold();
+                //MecanumDriveObj.ClawHold();
 
 
-                MecanumDriveObj.ArmBack();
+                //MecanumDriveObj.ArmBack();
 
 
                 MecanumDriveObj.TurnRight();
 
                 MecanumDriveObj.Straight();
 
-                MecanumDriveObj.ArmOut();
-                MecanumDriveObj.ClawRelease();
+                //MecanumDriveObj.ArmOut();
+                //MecanumDriveObj.ClawRelease();
             }
         }
 
